@@ -11,15 +11,15 @@ training_images, testing_images = training_images / 255, testing_images / 255
 
 class_names = ['Plane', 'Car', 'Bird', 'Cat', 'Deer', 'Dog', 'Frog', 'Horse', 'Ship', 'Truck']
 
-# visualizing sample images
-for i in range(16):
-    plt.subplot(4,4,i+1)
-    plt.xticks([])
-    plt.yticks([])
-    plt.imshow(training_images[i], cmap=plt.cm.binary)
-    plt.xlabel(class_names[training_labels[i][0]])
+# # visualizing sample images
+# for i in range(16):
+#     plt.subplot(4,4,i+1)
+#     plt.xticks([])
+#     plt.yticks([])
+#     plt.imshow(training_images[i], cmap=plt.cm.binary)
+#     plt.xlabel(class_names[training_labels[i][0]])
 
-plt.show()
+# plt.show()
 
 # reducing dataset size
 training_images = training_images[:20000]
@@ -40,7 +40,7 @@ prediction = model.predict(np.array([img]) / 255)
 index = np.argmax(prediction)
 print(f'Prediction is {class_names[index]}')
 
-
+plt.show()
 
 # # building a CNN 
 # model = models.Sequential()
