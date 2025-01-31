@@ -28,11 +28,17 @@ testing_images = testing_images[:4000]
 testing_labels = testing_labels[:4000]
 
 
-
+# load and preprocess the image and predict
 model = models.load_model('image_classifier.keras')
 
+img = cv.imread('images/horse.jpg')
+img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
+plt.imshow(img, cmap=plt.cm.binary)
 
+prediction = model.predict(np.array([img]) / 255)
+index = np.argmax(prediction)
+print(f'Prediction is {class_names[index]}')
 
 
 
